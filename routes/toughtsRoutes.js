@@ -3,6 +3,7 @@ const router = express.Router()
 const ToughtController = require('../controllers/ToughtController');
 const checkAuth = require('../helpers/auth').checkAuth
 
+router.get('/teste', ToughtController.teste)
 router.get('/add', checkAuth, ToughtController.createTought)
 router.post('/add', checkAuth, ToughtController.createToughtSave)
 router.get('/edit/:id', checkAuth, ToughtController.updateTought)

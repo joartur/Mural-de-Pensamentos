@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +13,16 @@
             <img src="/img/lamp.png" alt="Lâmpada">
         </a>
         <ul>
-            <li><a href="/">Pensamentos</a></li>
-            {{#if session.userid}}
-            <li><a href="/toughts/dashboard">Dashboard</a></li>
-            <li><a href="/logout"> Sair</a></li>
-            {{else}}
-            <li><a href="/login">Entrar</a></li>
-            <li><a href="/register">Registrar</a></li>
-            {{/if}}                
+                <li><a href="/">Pensamentos</a></li>
+                {{#if session.userid}}
+                <li><a href="/toughts/dashboard">Dashboard</a></li>
+                <li><a href="/logout"> Sair</a></li>
+                {{else}}
+                <li><a href="/login">Entrar</a></li>
+                <li><a href="/register">Registrar</a></li>
+                {{/if}}
+
+                
         </ul>
     </nav>
     <div class="container">

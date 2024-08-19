@@ -1,9 +1,10 @@
 <div class="auth-container">
     <h2>Registrar</h1>
-        <form action="/register" method="POST">
+        <form id="registerForm" action="/register" method="POST">
             <div class="form-control">
                 <label for="name">Nome:</label>
-                <input type="text" name="name" placeholder="Digite o seu nome" required>
+                <input id="name" type="text" name="name" placeholder="Digite o seu nome" required>
+                <span id="nameError" class="error"></span>
             </div>
             <div class="form-control">
                 <label for="email">Email:</label>
@@ -11,13 +12,56 @@
             </div>
             <div class="form-control">
                 <label for="password">Senha:</label>
-                <input type="password" name="password" placeholder="Digite a sua senha" required>
+                <input id="password" type="password" name="password" placeholder="Digite a sua senha" required>
+                <span id="passwordError" class="error"></span>
             </div>
             <div class="form-control">
                 <label for="confirmpassword">Confirmação de senha:</label>
-                <input type="password" name="confirmpassword" placeholder="Confirme a sua senha" required>
+                <input id="confirmpassword" type="password" name="confirmpassword" placeholder="Confirme a sua senha" required>
+                <span id="confirmpasswordError" class="error"></span>
             </div>
             <input type="submit" value="Cadastrar">
             <p>Já tem conta? <a href="/login">Clique aqui!</a></p>
         </form>
 </div>
+
+
+<script>
+    const registerForm = document.getElementById('registerForm')
+    
+    registerForm.addEventListener('submit', function(event) {
+            let valid = true;
+
+            // Limpa as mensagens de erro
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('confirmpasswordError').textContent = '';
+
+            // Validação do nome
+            const name = document.getElementById('name').value;
+            if (name.length <= 3) {
+                document.getElementById('nameError').textContent = 'O nome deve ter mais de 3 letras.';
+                valid = false;
+            }
+
+            // Validação da senha
+            const password = document.getElementById('password').value;
+            if (password.length <= 8) {
+                document.getElementById('passwordError').textContent = 'A senha deve ter mais de 8 caracteres.';
+                valid = false;
+            }
+
+            // Validação da confirmação da senha
+            const confirmPassword = document.getElementById('confirmpassword').value;
+            if (password !== confirmPassword) {
+                document.getElementById('confirmpasswordError').textContent = 'As senhas não coincidem.';
+                valid = false;
+            }
+
+            // Impede o envio do formulário se houver erros
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+
+</script>
