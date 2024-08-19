@@ -3,3 +3,7 @@
 <p>Cadastrar e fazer login para inserir um pensamento</p>
 
 <p>npm install , XAMPP & MySQL Workbench</p>
+
+<p>
+  <img src="https://raw.githubusercontent.com/joartur/Mural-de-Pensamentos/main/public/img/exemplo.png" alt="Exemplo">
+</p>
