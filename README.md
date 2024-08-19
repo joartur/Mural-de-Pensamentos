@@ -5,5 +5,5 @@
 <p>npm install , XAMPP & MySQL Workbench</p>
 
 <p>
-  <img src="https://raw.githubusercontent.com/joartur/Mural-de-Pensamentos/main/public/img/exemplo.png" alt="Exemplo">
+  <img src="https://raw.githubusercontent.com/joartur/Mural-de-Pensamentos/main/public/img/exemplo.png" width="150px" alt="Exemplo">
 </p>
