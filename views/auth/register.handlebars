@@ -26,7 +26,7 @@
 </div>
 
 
-<script>
+{{!-- <script>
     const registerForm = document.getElementById('registerForm')
     
     registerForm.addEventListener('submit', function(event) {
@@ -64,4 +64,37 @@
             }
         });
 
+</script> --}}
+
+<script>
+    const registerForm = document.getElementById('registerForm')
+    registerForm.addEventListener('submit', function(event){
+
+        // Validação do nome
+        const name = document.getElementById('name').value;
+        if(name.length <= 3){
+            document.getElementById('nameError').textContent = "O Nome deve ter mais que 3 letras";
+            event.preventDefault();
+        }
+
+        const password = document.getElementById('password').value;
+        if(password.length <= 8){
+            document.getElementById('passwordError').textContent = "A Senha deve conter mais que 8 caracteres";
+            event.preventDefault();
+        }
+
+        const confirmPassword = document.getElementById('confirmpassword').value;
+        if(password!== confirmPassword){
+            document.getElementById('confirmpasswordError').textContent = "As Senhas não coincidem";
+            event.preventDefault();
+        }
+
+        if(!valid){
+            event.preventDefault();
+        }else{
+            if(!confirm('Você realmente deseja se registrar?')){
+              event.preventDefault();
+            }
+        }
+    })
 </script>
