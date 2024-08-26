@@ -275,6 +275,7 @@ footer span{
 	color: #f6982d;
 }
 
+/* PAGINAÇÃO */
 .pagination {
     display: flex;
     justify-content: center;
@@ -285,21 +286,20 @@ footer span{
     margin: 0 5px;
     padding: 8px 16px;
     text-decoration: none;
-    color: #007bff;
+    color: #f6982d;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
 .pagination a.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+    background-color: #f6982d;
+    color: #FFFFFF;
+    border-color: #ddd;
 }
 
 .pagination a:hover:not(.active) {
-    background-color: #ddd;
+    background-color: #FFFFFF;
 }
-
 
 /* MEDIA QUERIES */
 
