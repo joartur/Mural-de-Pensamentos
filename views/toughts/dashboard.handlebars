@@ -1,28 +1,38 @@
 <div class="dashboard">
     <div class="title-container">
         <h2>Dashboard</h2>
-        <a href="/toughts/add" class="btn"> Criar pensamentos</a>
+        <a href="/toughts/add" class="btn">Criar pensamentos</a>
     </div>
     <h3>Seus pensamentos</h3>
     <ul>
         {{#each toughts}}
             <li>
-                <span class="label"> {{this.title}}</span>
+                <span class="label">{{this.title}}</span>
                 <span class="actions">
-                    <a href="/toughts/edit/{{this.id}}" class="btn"> Editar</a>
+                    <a href="/toughts/edit/{{this.id}}" class="btn">Editar</a>
                     <form action="/toughts/remove" method="POST">
                         <input type="hidden" name="id" value="{{this.id}}">
                         <input type="submit" value="Excluir">
                     </form>
                 </span>
-
             </li>
         {{/each}}
     </ul>
     {{#if emptyToughts}}
-        <p>Ainda não há nenhum pensamento cadastrado!
-            comece a criar <a href="/toughts/add">aqui!</a>
-        </p>
+        <p>Ainda não há nenhum pensamento cadastrado! Comece a criar <a href="/toughts/add">aqui!</a></p>
+    {{/if}}
 
+    {{#if totalPages}}
+        <div class="pagination">
+            {{#if (gt currentPage 1)}}
+                <a href="?page={{subtract currentPage 1}}">Anterior</a>
+            {{/if}}
+            {{#each (range 1 totalPages)}}
+                <a href="?page={{this}}" class="{{#if (eq this ../currentPage)}}active{{/if}}">{{this}}</a>
+            {{/each}}
+            {{#if (lt currentPage totalPages)}}
+                <a href="?page={{add currentPage 1}}">Próxima</a>
+            {{/if}}
+        </div>
     {{/if}}
 </div>

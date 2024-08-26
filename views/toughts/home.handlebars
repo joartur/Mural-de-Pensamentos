@@ -11,8 +11,7 @@
     {{/if}}
 
     <form action="/" method="GET">
-        <input type="text" name="search" 
-        placeholder="Está buscando algo?">
+        <input type="text" name="search" placeholder="Está buscando algo?">
         <input type="submit" value="Buscar">    
     </form>
 
@@ -20,21 +19,19 @@
         <span>Ordernar por:</span>
 
         <form action="/" method="GET">
-            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="search" value="{{search}}">
             <input type="hidden" name="order" value="new">
             <button type="submit"><i class="bi bi-arrow-up"></i></button>
         </form>
 
         <form action="/" method="GET">
-            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="search" value="{{search}}">
             <input type="hidden" name="order" value="old">
             <button type="submit"><i class="bi bi-arrow-down"></i></button>
         </form>
 
         <a href="/">Limpar</a>
     </div>
-
-
 </div>
 
 <div class="toughts-container">
@@ -47,6 +44,19 @@
                 por <span>{{this.User.name}}</span>
             </figcaption>
         </figure>
-
     {{/each}}
+</div>
+
+<div class="pagination">
+    {{#if (gt currentPage 1)}}
+        <a href="?page={{subtract currentPage 1}}&search={{search}}&order={{order}}">Anterior</a>
+    {{/if}}
+
+    {{#each (range 1 totalPages)}}
+        <a href="?page={{this}}&search={{../search}}&order={{../order}}" class="{{#if (eq ../currentPage this)}}active{{/if}}">{{this}}</a>
+    {{/each}}
+
+    {{#if (lt currentPage totalPages)}}
+        <a href="?page={{add currentPage 1}}&search={{search}}&order={{order}}">Próxima</a>
+    {{/if}}
 </div>
